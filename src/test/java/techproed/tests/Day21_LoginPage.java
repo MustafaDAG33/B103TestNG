@@ -16,15 +16,20 @@ public class Day21_LoginPage {
 
         Driver.getDriver().get(ConfigReader.getProperty("login_page_url"));
         LoginPage loginPage = new LoginPage();
-        loginPage.userName.sendKeys("techproed");
-        loginPage.password.sendKeys("SuperSecretPassword");
+        loginPage.userName.sendKeys(ConfigReader.getProperty("techpro_test_username"));
+        loginPage.password.sendKeys(ConfigReader.getProperty("techpro_test_password"));
+
         loginPage.submit.click();
         Assert.assertTrue(loginPage.logged.isDisplayed());
         loginPage.logout.click();
 
+        Driver.closeDriver();
+
 
 
     }
+
+
 
 
 }
